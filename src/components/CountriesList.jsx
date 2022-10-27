@@ -19,10 +19,10 @@ function CountriesList({countries}) {
         {countries.map((country)=>{
             return (
                 <div style={stylebox} className="list-group" key={country.alpha3Code}>
-                <Link className="list-group-item list-group-item-action" to={"/countriesList/"+country.alpha3Code}>
+                <Link className="list-group-item list-group-item-action" to={"/"+country.alpha3Code}>
                     <img style={styleimg} src={"https://flagpedia.net/data/flags/icon/72x54/"+country.alpha2Code.toLowerCase()+".png"} alt={country.alpha3Code}/>
                 </Link>
-                <Link className="list-group-item list-group-item-action" to={"/countriesList/"+country.alpha3Code}> {country.name.common} </Link>
+                <Link className="list-group-item list-group-item-action" to={"/"+country.alpha3Code}> {country.name.common} </Link>
                 </div>
             )
         })}

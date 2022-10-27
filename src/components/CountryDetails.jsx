@@ -6,6 +6,10 @@ function CountryDetails({countries}) {
     const mystyle2 = {
         width: "30%",
     }
+    const styleimg = {
+        width: "7vw",
+        margin: "auto"
+    }
 
     const {countryId} = useParams()
     const countrySelected = countries.find(country => country.alpha3Code === countryId)
@@ -13,6 +17,7 @@ function CountryDetails({countries}) {
             return (
             <div className="col-7">
                 <h1>{countrySelected.name.common}</h1>
+                <img style={styleimg} src={"https://flagpedia.net/data/flags/icon/72x54/"+countrySelected.alpha2Code.toLowerCase()+".png"} alt={countrySelected.alpha3Code}/>
                 <table className="table">
                 <thead></thead>
                 <tbody>
@@ -33,7 +38,7 @@ function CountryDetails({countries}) {
                         <ul>
                         {countrySelected.borders.map((border)=>{
                             return(
-                                <li key={border}><Link to={"/countriesList/"+border}>{border}</Link></li>
+                                <li key={border}><Link to={"/"+border}>{border}</Link></li>
                             )  
                         })}
                         </ul>

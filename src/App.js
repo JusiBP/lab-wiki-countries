@@ -10,13 +10,13 @@ import CountryDetails from './components/CountryDetails';
 
 import countriesL from "./countries.json"
 
+
 const apiURL = "https://ih-countries-api.herokuapp.com/countries";
 
 
 function App() {
 
   const [countriesApi, setCountriesApi] = useState([]);
-  // const [waiting, setWaiting] = useState(true);
 
   useEffect(()=>{
       axios.get(apiURL)
@@ -31,10 +31,16 @@ function App() {
 
   return (
     <div className="App">
-      <Navbar />
+      {/* <Navbar />
       <Routes>
         <Route path='/' element={<CountriesList countries={countriesApi}/>} />
         <Route path="/countriesList/:countryId" element={<CountryDetails countries={countriesL}/>} />
+      </Routes> */}
+
+      <Navbar />
+      <Routes>
+        <Route path='/' element={<CountriesList countries={countriesApi}/>} />
+        <Route path="/:countryId" element={[<CountryDetails countries={countriesL}/>,<CountriesList countries={countriesApi}/>]} />
       </Routes>
     </div>
   );
